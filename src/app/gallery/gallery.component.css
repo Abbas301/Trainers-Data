@@ -1,0 +1,16 @@
+
+.design 
+{
+  border: 2px solid rgb(221, 215, 215);
+  box-shadow: 3px 3px 3px 3px grey;
+  margin-left: 15px;
+}
+.margin
+{
+  margin-left: 250px;
+}
+.emps{
+  display: inline-flex;
+}
+
+

@@ -1,0 +1,250 @@
+<p>details works!</p>
+
+<div class="mt-4 container mb-4">
+    <span class=" p-3 border">
+    <button class="btn btn-outline-warning  me-3 btn-group" (click)="onQ1Click()">Q1</button>
+    <button class="btn btn-outline-warning  me-3 btn-group" (click)="onQ2Click()">Q2</button>
+    <button class="btn btn-outline-warning  me-3 btn-group" (click)="onQ3Click()">Q3</button>
+    <button class="btn btn-outline-warning  me-3 btn-group" (click)="onQ4Click()">Q4</button>
+    <button class="btn btn-outline-warning  me-3 btn-group" (click)="yearlyClick()">Yearly</button>
+</span>
+</div>
+
+<div class="scrollable container">
+    <table *ngIf="!yearlytable" class="table table-bordered table-danger text-center">
+        <thead class="">
+            <tr>
+                <th colspan="7" class="bg-primary">Quaterly Progress of 2021</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="3" class="fw-bolder bg-primary">Professtional Services</td>
+                <td colspan="6" class="fw-bolder bg-success">{{value}}</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="fw-bolder bg-success">{{first}}</td>
+                <td colspan="2" class="fw-bolder bg-success">{{second}}</td>
+                <td colspan="2" class="fw-bolder bg-success">{{third}}</td>
+            </tr>
+            <tr>
+                <td class="fw-bolder bg-success">Plan</td>
+                <td class="fw-bolder bg-success">Actual</td>
+                <td class="fw-bolder bg-success">Plan</td>
+                <td class="fw-bolder bg-success">Actual</td>
+                <td class="fw-bolder bg-success">Plan</td>
+                <td class="fw-bolder bg-success">Actual</td>
+            </tr>
+            <!-- Revenue Field -->
+            <tr *ngIf="q1table">
+                <td class="fw-bolder bg-info">Revenue</td>
+                <td *ngFor="let block of q1">{{block}}</td>
+            </tr>
+            <tr *ngIf="q2table">
+                <td class="fw-bolder bg-info">Revenue</td>
+                <td *ngFor="let block of q2">{{block}}</td>
+            </tr>
+            <tr *ngIf="q3table">
+                <td class="fw-bolder bg-info">Revenue</td>
+                <td *ngFor="let block of q3">{{block}}</td>
+            </tr>
+            <tr *ngIf="q4table">
+                <td class="fw-bolder bg-info">Revenue</td>
+                <td *ngFor="let block of q4">{{block}}</td>
+            </tr>
+            <!--  Resource Cost Filed   -->
+            <tr *ngIf="q1table">
+                <td class="fw-bolder bg-info">Resource Cost</td>
+                <td *ngFor="let block of q1">{{block}}</td>
+            </tr>
+            <tr *ngIf="q2table">
+                <td class="fw-bolder bg-info">Resource Cost</td>
+                <td *ngFor="let block of q2">{{block}}</td>
+            </tr>
+            <tr *ngIf="q3table">
+                <td class="fw-bolder bg-info">Resource Cost</td>
+                <td *ngFor="let block of q3">{{block}}</td>
+            </tr>
+            <tr *ngIf="q4table">
+                <td class="fw-bolder bg-info">Resource Cost</td>
+                <td *ngFor="let block of q4">{{block}}</td>
+            </tr>
+            <!--  Gross Margin Field  -->
+            <tr *ngIf="q1table">
+                <td class="fw-bolder bg-info">Gross Margin %</td>
+                <td *ngFor="let block of q1">{{block}}%</td>
+            </tr>
+            <tr *ngIf="q2table">
+                <td class="fw-bolder bg-info">Gross Margin %</td>
+                <td *ngFor="let block of q2">{{block}}%</td>
+            </tr>
+            <tr *ngIf="q3table">
+                <td class="fw-bolder bg-info">Gross Margin %</td>
+                <td *ngFor="let block of q3">{{block}}%</td>
+            </tr>
+            <tr *ngIf="q4table">
+                <td class="fw-bolder bg-info">Gross Margin %</td>
+                <td *ngFor="let block of q4">{{block}}%</td>
+            </tr>
+            <!--  Billable Field -->
+            <tr *ngIf="q1table">
+                <td class="fw-bolder bg-info">Billable Head Count</td>
+                <td *ngFor="let block of q1">{{block}}</td>
+            </tr>
+            <tr *ngIf="q2table">
+                <td class="fw-bolder bg-info">Billable Head Count</td>
+                <td *ngFor="let block of q2">{{block}}</td>
+            </tr>
+            <tr *ngIf="q3table">
+                <td class="fw-bolder bg-info">Billable Head Count</td>
+                <td *ngFor="let block of q3">{{block}}</td>
+            </tr>
+            <tr *ngIf="q4table">
+                <td class="fw-bolder bg-info">Billable Head Count</td>
+                <td *ngFor="let block of q4">{{block}}</td>
+            </tr>
+            <!--  Person Revenue Field  -->
+            <tr *ngIf="q1table">
+                <td class="fw-bolder bg-info">Per Person revenue</td>
+                <td *ngFor="let block of q1">{{block}}</td>
+            </tr>
+            <tr *ngIf="q2table">
+                <td class="fw-bolder bg-info">Per Person revenue</td>
+                <td *ngFor="let block of q2">{{block}}</td>
+            </tr>
+            <tr *ngIf="q3table">
+                <td class="fw-bolder bg-info">Per Person revenue</td>
+                <td *ngFor="let block of q3">{{block}}</td>
+            </tr>
+            <tr *ngIf="q4table">
+                <td class="fw-bolder bg-info">Per Person revenue</td>
+                <td *ngFor="let block of q4">{{block}}</td>
+            </tr>
+            <!--  Person Cost  -->
+            <tr *ngIf="q1table">
+                <td class="fw-bolder bg-info">Per Person Cost</td>
+                <td *ngFor="let block of q1">{{block}}</td>
+            </tr>
+            <tr *ngIf="q2table">
+                <td class="fw-bolder bg-info">Per Person Cost</td>
+                <td *ngFor="let block of q2">{{block}}</td>
+            </tr>
+            <tr *ngIf="q3table">
+                <td class="fw-bolder bg-info">Per Person Cost</td>
+                <td *ngFor="let block of q3">{{block}}</td>
+            </tr>
+            <tr *ngIf="q4table">
+                <td class="fw-bolder bg-info">Per Person Cost</td>
+                <td *ngFor="let block of q4">{{block}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<!-- yearly table -->
+<div class="container-fluid overflow-auto" *ngIf="yearlytable">
+     <table class="table table-hover table-resppnsive table-bordered text-center ">
+          <thead>
+              <tr>
+                  <th colspan="25" class="bg-primary">Queterly progress of 2021</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td rowspan="3" class="fw-bolder bg-primary">Professional services</td>
+                  <td colspan="6" class="fw-bolder bg-success">Q1</td>
+                  <td colspan="6" class="fw-bolder bg-success">Q2</td>
+                  <td colspan="6" class="fw-bolder bg-success">Q3</td>
+                  <td colspan="6" class="fw-bolder bg-success">Q4</td>
+              </tr>
+              <tr class="bg-success">
+                  <td colspan="2" class="fw-bolder">April 2020-21</td>
+                  <td colspan="2" class="fw-bolder">May 2020-21</td>
+                  <td colspan="2" class="fw-bolder">June 2020-21</td>
+                  <td colspan="2" class="fw-bolder">July 2020-21</td>
+                  <td colspan="2" class="fw-bolder">August 2020-21</td>
+                  <td colspan="2" class="fw-bolder">September 2020-21</td>
+                  <td colspan="2" class="fw-bolder">October 2020-21</td>
+                  <td colspan="2" class="fw-bolder">November 2020-21</td>
+                  <td colspan="2" class="fw-bolder">December 2020-21</td>
+                  <td colspan="2" class="fw-bolder">January 2020-21</td>
+                  <td colspan="2" class="fw-bolder">February 2020-21</td>
+                  <td colspan="2" class="fw-bolder">March 2020-21</td>
+              </tr>
+              <tr>
+                  <td class="fw-bolder">Actual</td>
+                  <td class="fw-bolder">Plan</td>
+                  <td class="fw-bolder">Actual</td>
+                  <td class="fw-bolder">Plan</td>
+                  <td class="fw-bolder">Actual</td>
+                  <td class="fw-bolder">Plan</td>
+                  <td class="fw-bolder">Actual</td>
+                  <td class="fw-bolder">Plan</td>
+                  <td class="fw-bolder">Actual</td>
+                  <td class="fw-bolder">Plan</td>
+                  <td class="fw-bolder">Actual</td>
+                  <td class="fw-bolder">Plan</td>
+                  <td class="fw-bolder">Actual</td>
+                  <td class="fw-bolder">Plan</td>
+                  <td class="fw-bolder">Actual</td>
+                  <td class="fw-bolder">Plan</td>
+                  <td class="fw-bolder">Actual</td>
+                  <td class="fw-bolder">Plan</td>
+                  <td class="fw-bolder">Actual</td>
+                  <td class="fw-bolder">Plan</td>
+                  <td class="fw-bolder">Actual</td>
+                  <td class="fw-bolder">Plan</td>
+                  <td class="fw-bolder">Actual</td>
+                  <td class="fw-bolder">Plan</td>
+              </tr>
+              <!-- Revenue -->
+              <tr>
+                  <td class="fw-bolder bg-info">Revenue</td>
+                  <td *ngFor="let block of q1">{{block}}</td>
+                  <td *ngFor="let block of q2">{{block}}</td>
+                  <td *ngFor="let block of q3">{{block}}</td>
+                  <td *ngFor="let block of q4">{{block}}</td>
+              </tr>
+              <!-- Resource cost -->
+              <tr>
+                <td class="fw-bolder bg-info">Resource Cost</td>
+                <td *ngFor="let block of q1">{{block}}</td>
+                <td *ngFor="let block of q2">{{block}}</td>
+                <td *ngFor="let block of q3">{{block}}</td>
+                <td *ngFor="let block of q4">{{block}}</td>
+            </tr>
+            <!-- Gross Margin -->
+            <tr>
+                <td class="fw-bolder bg-info">Gross Margin %</td>
+                <td *ngFor="let block of q1">{{block}}</td>
+                <td *ngFor="let block of q2">{{block}}</td>
+                <td *ngFor="let block of q3">{{block}}</td>
+                <td *ngFor="let block of q4">{{block}}</td>
+            </tr>
+            <!-- Billable Head Count -->
+            <tr>
+                <td class="fw-bolder bg-info">Billable Head Count</td>
+                <td *ngFor="let block of q1">{{block}}</td>
+                <td *ngFor="let block of q2">{{block}}</td>
+                <td *ngFor="let block of q3">{{block}}</td>
+                <td *ngFor="let block of q4">{{block}}</td>
+            </tr>
+            <!-- per person revenue -->
+            <tr>
+                <td class="fw-bolder bg-info">Per Person Revenue</td>
+                <td *ngFor="let block of q1">{{block}}</td>
+                <td *ngFor="let block of q2">{{block}}</td>
+                <td *ngFor="let block of q3">{{block}}</td>
+                <td *ngFor="let block of q4">{{block}}</td>
+            </tr>
+            <!-- per person cost -->
+            <tr>
+                <td class="fw-bolder bg-info">Per Person Cost</td>
+                <td *ngFor="let block of q1">{{block}}</td>
+                <td *ngFor="let block of q2">{{block}}</td>
+                <td *ngFor="let block of q3">{{block}}</td>
+                <td *ngFor="let block of q4">{{block}}</td>
+            </tr>
+          </tbody>
+     </table>
+</div>

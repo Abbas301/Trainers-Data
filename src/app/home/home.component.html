@@ -1,0 +1,148 @@
+
+<div class="container mt-5 design">
+    
+<h1 class=" text-center mt-5 color"><b>Get the Trainers Data</b></h1>
+
+<div class="container col-6">
+  <div class="row">
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label><b>Select Trainer</b></mat-label>
+      <input type="text" matInput [formControl]="myControl" class="form-conrol" [(ngModel)]="value" [matAutocomplete]="auto">    
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+  </div>
+  </div>
+
+  <div class="space">  
+    <div class="container" *ngIf="value">
+      <form class="example-form">
+          <div *ngFor="let detail of details">
+
+              <div *ngIf="value == detail.ename">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Contact Number</mat-label>
+                    <input matInput type="number" value="{{detail.mobile}}">
+                </mat-form-field>
+            </div>
+
+              <div *ngIf="value == detail.ename">
+                  <mat-form-field class="example-full-width">
+                      <mat-label>Email</mat-label>
+                      <input matInput type="email" value="{{detail.email}}">
+                  </mat-form-field>
+              </div>
+
+              <div *ngIf="value == detail.ename">
+                  <mat-form-field class="example-full-width">
+                      <mat-label>Place</mat-label>
+                      <input matInput type="text" value="{{detail.place}}">
+                  </mat-form-field>
+              </div>
+
+          </div>
+      </form>
+  </div>
+  </div>
+
+</div>
+
+<div class="container mt-5 design p-5">
+
+  <h1 class=" text-center mt-5 color"><b>Adding Cards</b></h1>
+  <!-- Cards -->
+        
+ <div class="emps">
+  <form class="example-form" #addProductForm= "ngForm" (ngSubmit)="onFormSubmit(addProductForm)" >
+                          
+    <div class="card" style="width: 18rem;">
+      <div class="card-body design">
+        <mat-form-field class="example-full-width">
+          <mat-label><b>Trainer Name</b></mat-label>
+          <input type="text" matInput class="form-conrol" id="name" name="name" ngModel #name= "ngModel">
+          <mat-autocomplete #auto="matAutocomplete" >
+          </mat-autocomplete>
+        </mat-form-field> <br>
+      
+        <mat-form-field class="example-full-width">
+          <mat-label><b>Mobile</b></mat-label>
+          <input type="text" matInput class="form-conrol" id="mobile" name="mobile" ngModel #mobile="ngModel">
+          <mat-autocomplete #auto="matAutocomplete" >
+          </mat-autocomplete>
+        </mat-form-field> <br>
+      
+        <mat-form-field class="example-full-width">
+          <mat-label><b>Email</b></mat-label>
+          <input type="text" matInput class="form-conrol" id="email" name="email" ngModel #email="ngModel">
+          <mat-autocomplete #auto="matAutocomplete" >
+          </mat-autocomplete>
+        </mat-form-field> <br>
+      
+        <mat-form-field class="example-full-width">
+          <mat-label><b>Place</b></mat-label>
+          <input type="text" matInput class="form-conrol" id="place" name="place" ngModel #place = "ngModel">
+          <mat-autocomplete #auto="matAutocomplete" >
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <button type="submit" class="btn btn-info" >Add Trainer</button> 
+        <button class="btn btn-primary mx-1 px-5" (click)="addEmployee()">+</button>  
+        </div>
+        </div>
+        
+  </form> 
+  <!-- Adding new carts -->
+              <form [formGroup]="empForm" (ngSubmit)="onSubmit()" class="margin">
+                  <div formArrayName="employees" class="emps"> 
+                  <div *ngFor="let employee of employees().controls">
+                  <form class="example-form" #addProductForm= "ngForm" (ngSubmit)="onFormSubmit(addProductForm)">
+                          
+                    <div class="card" style="width: 18rem;">
+                      <div class="card-body design">
+                        <mat-form-field class="example-full-width">
+                          <mat-label><b>Trainer Name</b></mat-label>
+                          <input type="text" matInput class="form-conrol" id="name" name="name" ngModel #name= "ngModel">
+                          <mat-autocomplete #auto="matAutocomplete" >
+                          </mat-autocomplete>
+                        </mat-form-field> <br>
+                      
+                        <mat-form-field class="example-full-width">
+                          <mat-label><b>Mobile</b></mat-label>
+                          <input type="text" matInput class="form-conrol" id="mobile" name="mobile" ngModel #mobile="ngModel">
+                          <mat-autocomplete #auto="matAutocomplete" >
+                          </mat-autocomplete>
+                        </mat-form-field> <br>
+                      
+                        <mat-form-field class="example-full-width">
+                          <mat-label><b>Email</b></mat-label>
+                          <input type="text" matInput class="form-conrol" id="email" name="email" ngModel #email="ngModel">
+                          <mat-autocomplete #auto="matAutocomplete" >
+                          </mat-autocomplete>
+                        </mat-form-field> <br>
+                      
+                        <mat-form-field class="example-full-width">
+                          <mat-label><b>Place</b></mat-label>
+                          <input type="text" matInput class="form-conrol" id="place" name="place" ngModel #place = "ngModel">
+                          <mat-autocomplete #auto="matAutocomplete" >
+                          </mat-autocomplete>
+                        </mat-form-field>
+              
+                        <button type="submit" class="btn btn-info" >Add Trainer</button> 
+                        <button class="btn btn-primary mx-1 px-5" (click)="addEmployee()">+</button>  
+                        </div>
+                        </div>
+                        
+                  </form>   
+                    </div>
+                  </div>  
+                </form>
+ </div>
+              
+</div>
+
+

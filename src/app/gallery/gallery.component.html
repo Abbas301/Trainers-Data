@@ -1,0 +1,49 @@
+ <button type="button" class="btn btn-warning" (click)="addEmployee()">Add Cards</button>
+
+  <form [formGroup]="empForm" (ngSubmit)="onSubmit()" class="margin">
+      <div formArrayName="employees" class="emps"> 
+      <div *ngFor="let employee of employees().controls">
+      <form class="example-form" #addProductForm= "ngForm" >
+              
+        <div class="card" style="width: 18rem;">
+          <div class="card-body design">
+            <mat-form-field class="example-full-width">
+              <mat-label><b>Trainer Name</b></mat-label>
+              <input type="text" matInput class="form-conrol" id="name" name="name" ngModel #name= "ngModel">
+              <mat-autocomplete #auto="matAutocomplete" >
+              </mat-autocomplete>
+            </mat-form-field> <br>
+          
+            <mat-form-field class="example-full-width">
+              <mat-label><b>Mobile</b></mat-label>
+              <input type="text" matInput class="form-conrol" id="mobile" name="mobile" ngModel #mobile="ngModel">
+              <mat-autocomplete #auto="matAutocomplete" >
+              </mat-autocomplete>
+            </mat-form-field> <br>
+          
+            <mat-form-field class="example-full-width">
+              <mat-label><b>Email</b></mat-label>
+              <input type="text" matInput class="form-conrol" id="email" name="email" ngModel #email="ngModel">
+              <mat-autocomplete #auto="matAutocomplete" >
+              </mat-autocomplete>
+            </mat-form-field> <br>
+          
+            <mat-form-field class="example-full-width">
+              <mat-label><b>Place</b></mat-label>
+              <input type="text" matInput class="form-conrol" id="place" name="place" ngModel #place = "ngModel">
+              <mat-autocomplete #auto="matAutocomplete" >
+              </mat-autocomplete>
+            </mat-form-field>
+
+            <button type="submit" class="btn btn-info" >Add Trainer</button> 
+            <button class="btn btn-primary mx-1 px-5" (click)="addEmployee()">+</button>  
+            </div>
+            </div>
+            
+      </form>   
+        </div>
+      </div>  
+    </form>
+     
+  
+     

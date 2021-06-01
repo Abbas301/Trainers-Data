@@ -1,0 +1,35 @@
+{
+  "details" : [
+    {
+      "ename": "Gangadhar",
+      "mobile": "9876543567",
+      "email" : "gangadhar@gmail.com",
+      "place" : "Bangalore"
+    },
+    {
+      "ename": "Pavan",
+      "mobile": "9876543657",
+      "email" : "pavan@gmail.com",
+      "place" : "Hyderabad"
+    },
+     {
+      "ename": "Nilim Sarma",
+      "mobile": "9876543123",
+      "email" : "nilim@gmail.com",
+      "place" : "Chennai"
+    },
+    {
+      "ename": "Jashmine",
+      "mobile": "9876543768",
+      "email" : "jashmine@gmail.com",
+      "place" : "Bangalore"
+    },
+    {
+      "ename": "Praveen",
+      "mobile": "9876543234",
+      "email" : "praveen@gmail.com",
+      "place" : "Hyderabad"
+    }
+  ]
+  
+}
